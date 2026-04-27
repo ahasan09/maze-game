@@ -73,18 +73,18 @@ function playerMove(e) {
         updateMap();
         draw();
         if (player.x == 20 && player.y == 8) {
-            swal({
+            Swal.fire({
                 allowEscapeKey: false,
                 allowOutsideClick: false,
                 title: 'Congratulations! You Win!',
                 text: "Good Job!!",
-                type: 'success',
+                icon: 'success',
                 confirmButtonColor: '#8bc34a',
                 confirmButtonText: 'Play again!',
                 showCancelButton: true,
                 cancelButtonColor: '#e91e63'
-            }).then(function (isConfirm) {
-                if (isConfirm) {
+            }).then((result) => {
+                if (result.isConfirmed) {
                     resetGame();
                 }
             })
@@ -138,18 +138,18 @@ function resetGame() {
 function initGame() {
     draw();
     document.getElementById("startNewGame").onclick = function () {
-        swal({
+        Swal.fire({
             allowEscapeKey: false,
             allowOutsideClick: false,
             title: 'Are you sure?',
             text: "Your progress will be Lost!",
-            type: 'warning',
+            icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#8bc34a',
             cancelButtonColor: '#e91e63',
             confirmButtonText: 'Yes, Restart Game!'
-        }).then(function (isConfirm) {
-            if (isConfirm) {
+        }).then((result) => {
+            if (result.isConfirmed) {
                 resetGame();
             }
         })
